@@ -1,0 +1,25 @@
+{
+  "name": "gravatar-avatar",
+  "version": "0.0.1",
+  "homepage": "https://github.com/philippspinnler/gravatar-avatar",
+  "authors": [
+    "Philipp Spinnler <philipp@spinnler.ch>"
+  ],
+  "description": "A polymer element to get a gravatar avatar",
+  "main": "gravatar-avatar.html",
+  "keywords": [
+    "Polymer",
+    "Gravatar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "js-md5": "~1.1.0"
+  }
+}
