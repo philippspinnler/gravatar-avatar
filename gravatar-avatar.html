@@ -1,9 +1,9 @@
 <script src="../js-md5/js/md5.min.js"></script>
 
-<polymer-element name="gravatar-avatar" attributes="email size default force">
+<polymer-element name="gravatar-avatar" attributes="email size default force circle imgstyle">
     <template>
         <div>
-            <img src="http://www.gravatar.com/avatar/{{md5(email)}}?s={{size}}&d={{default}}{{forced(force)}}">
+            <img style="{{getStyle(imgstyle) | styleObject}}" src="http://www.gravatar.com/avatar/{{md5(email)}}?s={{size}}&d={{default}}{{forced(force)}}">
         </div>
     </template>
     <script>
@@ -12,14 +12,21 @@
             size: 50,
             default: 'mm',
             force: 'n',
+            circle: false,
+            imgstyle: '',
             md5: function(email) {
                 return md5(email);
             },
             forced: function(force) {
-                if (typeof force === 'undefined' || force === 'n') {
+                if (force === null || force === 'n') {
                     return '';
                 }
                 return '&f=y';
+            },
+            getStyle: function(style) {
+                if (style === 'circle') return {"border-radius": "50%"};
+                if (style === 'rounded') return {"border-radius": "6px;"};
+                return style;
             }
         });
     </script>
